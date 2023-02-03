@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
-const PORT = process.env.PORT || 4000; 
+const PORT = process.env.PORT || 3000; 
 
 app.use(express.json());
 app.use(cors())
@@ -38,7 +38,7 @@ function verifyToken (req, res, next){
 
 mongoose.set("strictQuery", false);
 mongoose.connect(
-  `mongodb+srv://Mohamed_97:Mohusby164@cluster0.mqorbiy.mongodb.net/Cluster0?retryWrites=true&w=majority`, 
+  process.env.DB_URL, 
 { useNewUrlParser: true, useUnifiedTopology: true },
 () => {
   console.log("DB connected");
